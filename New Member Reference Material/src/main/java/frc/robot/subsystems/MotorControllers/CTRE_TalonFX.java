@@ -34,7 +34,7 @@ public class CTRE_TalonFX extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-  public void Run() {
+  public void run() {
     talonFX.set(1);
     /* sets motor speed
      * value ranges from -1 to 1 to 2 decimals

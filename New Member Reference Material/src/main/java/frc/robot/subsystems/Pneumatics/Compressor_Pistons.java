@@ -4,14 +4,47 @@
 
 package frc.robot.subsystems.Pneumatics;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Compressor_Pistons extends SubsystemBase {
-  /** Creates a new Compressor_Pistonr. */
-  public Compressor_Pistons() {}
+  /** Configuration and example code for compressors and pistons */
+
+  private final DoubleSolenoid piston;
+
+  public Compressor_Pistons() {
+
+    piston = new DoubleSolenoid(PneumaticsModuleType.REVPH, 3, 5);
+    /* instantiates piston
+     * PneumaticsModuleType is always REVPH, never CTREPCM
+     * forward and reverse channel are based on the piston
+     * configuring the compressor itself is not needed
+     */
+  }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+  }
+
+  public void togglePiston() {
+    piston.toggle();
+    // toggles piston state from open to closed or vice versa
+  }
+
+  public void openPiston() {
+    piston.set(Value.kForward);
+    /* extends piston
+     * opening or closing depends on mechanism
+     */
+  }
+
+  public void closePiston() {
+    piston.set(Value.kReverse);
+    /* retracts piston
+     * opening or closing depends on mechanism
+     */
   }
 }

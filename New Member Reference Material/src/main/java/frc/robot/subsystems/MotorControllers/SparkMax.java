@@ -44,7 +44,7 @@ public class SparkMax extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-  public void Run() {
+  public void run() {
     sparkMax.set(1);
     /* sets the motor speed
      * range is -1 to 1 with 2 decimals precision

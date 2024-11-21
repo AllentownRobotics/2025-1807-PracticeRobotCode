@@ -4,14 +4,29 @@
 
 package frc.robot.subsystems.Sensors;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class LimitSwitch extends SubsystemBase {
-  /** Creates a new LimitSwitch. */
-  public LimitSwitch() {}
+  /** Configuration and example code for limit switches */
+
+  private final DigitalInput limitSwitch;
+
+  public LimitSwitch() {
+    
+    limitSwitch = new DigitalInput(7);
+    /* instantiates sensor
+     * channel is dependent on the sensor itself
+     */
+  }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+  }
+
+  public boolean getState() {
+    return limitSwitch.get();
+    // gets the limit switch's state
   }
 }
