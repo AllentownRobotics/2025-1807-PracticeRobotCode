@@ -4,22 +4,23 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.math.MathUtil;
+import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import frc.robot.subsystems.Drivetrain;
 
-public class DriveCMD extends Command {
+/** An example command that uses an example subsystem. */
+public class ExampleCommand extends Command {
+  @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
+  private final ExampleSubsystem m_subsystem;
 
-  CommandXboxController controller;
-  Drivetrain drivetrain;
-  
-  /** Creates a new DriveCMD. */
-  public DriveCMD(CommandXboxController controller, Drivetrain drivetrain) {
-    this.controller = controller;
-    this.drivetrain = drivetrain;
+  /**
+   * Creates a new ExampleCommand.
+   *
+   * @param subsystem The subsystem used by this command.
+   */
+  public ExampleCommand(ExampleSubsystem subsystem) {
+    m_subsystem = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(drivetrain);
+    addRequirements(subsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -28,14 +29,7 @@ public class DriveCMD extends Command {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {
-
-    drivetrain.drive(
-      MathUtil.applyDeadband(controller.getLeftX(), 0.25), 
-      MathUtil.applyDeadband(controller.getLeftY(), 0.25), 
-      MathUtil.applyDeadband(controller.getRightX(), 0.25) * Math.PI,
-      true);
-  }
+  public void execute() {}
 
   // Called once the command ends or is interrupted.
   @Override
