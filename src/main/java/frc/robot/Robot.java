@@ -89,7 +89,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     m_compressor 
-    SmartDashboard.putBoolean("is limit switch pressed", topLimitSwitch.get());
+    SmartDashboard.putBoolean(null, topLimitSwitch.get());
   }
 
   @Override
