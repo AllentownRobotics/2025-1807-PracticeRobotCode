@@ -7,6 +7,7 @@ package frc.robot.subsystems.Sensors;
 import com.ctre.phoenix6.hardware.Pigeon2;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class Pigeon extends SubsystemBase {
   /** Configuration and example code for Pigeon sensors */
@@ -15,7 +16,7 @@ public class Pigeon extends SubsystemBase {
 
   public Pigeon() {
     
-    pigeon = new Pigeon2(7);
+    pigeon = new Pigeon2(Constants.pigeonID);
     /* instantiates sensor
      * deviceID is based on the sensor itself
      */

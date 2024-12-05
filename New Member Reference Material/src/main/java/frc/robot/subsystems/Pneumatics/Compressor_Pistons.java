@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class Compressor_Pistons extends SubsystemBase {
   /** Configuration and example code for compressors and pistons */
@@ -24,7 +25,7 @@ public class Compressor_Pistons extends SubsystemBase {
      * PneumaticsModuleType is always REVPH, never CTREPCM
      */
 
-    piston = new DoubleSolenoid(PneumaticsModuleType.REVPH, 3, 5);
+    piston = new DoubleSolenoid(PneumaticsModuleType.REVPH, Constants.pistonForwardChannel, Constants.pistonReverseChannel);
     /* instantiates piston
      * PneumaticsModuleType is always REVPH, never CTREPCM
      * forward and reverse channel are based on the piston

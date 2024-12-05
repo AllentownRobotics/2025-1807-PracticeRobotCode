@@ -7,6 +7,7 @@ package frc.robot.subsystems.Sensors;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class BeamBreak extends SubsystemBase {
   /** Configuration and example code for beam break sensors */
@@ -14,7 +15,7 @@ public class BeamBreak extends SubsystemBase {
   DigitalInput beamBreak;
 
   public BeamBreak() {
-    beamBreak = new DigitalInput(0);
+    beamBreak = new DigitalInput(Constants.beamBreakID);
     /* instantiates sensor
      * channel depends on sensor itself
      */
@@ -27,5 +28,6 @@ public class BeamBreak extends SubsystemBase {
 
   public void getState() {
     beamBreak.get();
+    // gets the beam break sensor's state
   }
 }

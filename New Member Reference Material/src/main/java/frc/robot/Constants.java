@@ -14,6 +14,30 @@ package frc.robot;
  */
 public final class Constants {
   public static class OperatorConstants {
+
     public static final int kDriverControllerPort = 0;
+
   }
+  
+  public static final int talonMotorID = 0;
+
+  public static final int sparkFlexMotorID = 1;
+
+  public static final int sparkMaxMotorID = 2;
+
+  public static final int pistonForwardChannel = 3;
+
+  public static final int pistonReverseChannel = 4;
+
+  public static final int encoderMotorID = 5;
+
+  public static final int beamBreakID = 6;
+
+  public static final int limitSwitchID = 7;
+
+  public static final int pigeonID = 8;
+
+  public static final int ultrasonicPingChannel = 9;
+
+  public static final int ultrasonicEchoChannel = 10;
 }

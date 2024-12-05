@@ -6,6 +6,7 @@ package frc.robot.subsystems.Sensors;
 
 import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class UltrasonicSensor extends SubsystemBase {
   /** Configuration and example code for ultrasonic sensors */
@@ -14,7 +15,7 @@ public class UltrasonicSensor extends SubsystemBase {
 
   public UltrasonicSensor() {
     
-    ultrasonic = new Ultrasonic(3, 5);
+    ultrasonic = new Ultrasonic(Constants.ultrasonicPingChannel, Constants.ultrasonicEchoChannel);
     /* instantiates ultrasonic sensor
      * ping channel and echo channel depends on the sensor itself
      */

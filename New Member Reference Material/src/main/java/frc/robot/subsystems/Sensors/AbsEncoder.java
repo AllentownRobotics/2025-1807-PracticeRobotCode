@@ -9,6 +9,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class AbsEncoder extends SubsystemBase {
   /** Configruation and example code for absolute encoders */
@@ -18,7 +19,7 @@ public class AbsEncoder extends SubsystemBase {
   // a hypothetical motor needed for the absolute encoder to work
 
   public AbsEncoder() {
-    sampleMotor = new CANSparkMax(0, MotorType.kBrushless);
+    sampleMotor = new CANSparkMax(Constants.encoderMotorID, MotorType.kBrushless);
     // instantiates motor, same as whatever normal motor controller
 
     absoluteEncoder = sampleMotor.getAbsoluteEncoder();

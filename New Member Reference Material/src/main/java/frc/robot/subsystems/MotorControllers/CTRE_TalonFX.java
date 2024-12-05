@@ -8,6 +8,7 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class CTRE_TalonFX extends SubsystemBase {
   /** Configuration and example code for TalonFX motor controllers */
@@ -16,7 +17,7 @@ public class CTRE_TalonFX extends SubsystemBase {
   
   public CTRE_TalonFX() {
 
-    talonFX = new TalonFX(7);
+    talonFX = new TalonFX(Constants.talonMotorID);
     /* intantiates motor controller
      * deviceID is specific to the motor controller 
     */

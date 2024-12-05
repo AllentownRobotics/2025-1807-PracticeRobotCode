@@ -9,6 +9,7 @@ import com.revrobotics.CANSparkBase.IdleMode;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class SparkMax extends SubsystemBase {
   /** Configuration and example code for SparkMax motor controllers */
@@ -16,7 +17,7 @@ public class SparkMax extends SubsystemBase {
   private final CANSparkMax sparkMax;
 
     public SparkMax() {
-      sparkMax = new CANSparkMax(7, MotorType.kBrushless);
+      sparkMax = new CANSparkMax(Constants.sparkMaxMotorID, MotorType.kBrushless);
       /* instantiates motor controller
        * deviceID is specific to the motor controller
        * motorType is always MotorType.kBrushless b/c we use brushless motors

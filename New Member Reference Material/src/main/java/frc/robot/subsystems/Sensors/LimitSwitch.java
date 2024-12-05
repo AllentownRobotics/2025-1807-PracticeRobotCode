@@ -6,6 +6,7 @@ package frc.robot.subsystems.Sensors;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class LimitSwitch extends SubsystemBase {
   /** Configuration and example code for limit switches */
@@ -14,7 +15,7 @@ public class LimitSwitch extends SubsystemBase {
 
   public LimitSwitch() {
     
-    limitSwitch = new DigitalInput(7);
+    limitSwitch = new DigitalInput(Constants.limitSwitchID);
     /* instantiates sensor
      * channel is dependent on the sensor itself
      */

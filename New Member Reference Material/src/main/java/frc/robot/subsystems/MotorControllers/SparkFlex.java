@@ -9,6 +9,7 @@ import com.revrobotics.CANSparkBase.IdleMode;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class SparkFlex extends SubsystemBase {
   /** Configuration and example code for SparkFlex motor controllers */
@@ -16,7 +17,7 @@ public class SparkFlex extends SubsystemBase {
   private final CANSparkFlex sparkFlex;
 
   public SparkFlex() {
-    sparkFlex = new CANSparkFlex(7, MotorType.kBrushless);
+    sparkFlex = new CANSparkFlex(Constants.sparkFlexMotorID, MotorType.kBrushless);
     /* instantiates motor controller
      * deviceID is specific to the motor controller
      * motorType is always MotorType.kBrushless b/c we use brushless motors
