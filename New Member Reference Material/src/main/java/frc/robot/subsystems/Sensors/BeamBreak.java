@@ -4,14 +4,28 @@
 
 package frc.robot.subsystems.Sensors;
 
+
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class BeamBreak extends SubsystemBase {
-  /** Creates a new BeamBreak. */
-  public BeamBreak() {}
+  /** Configuration and example code for beam break sensors */
+
+  DigitalInput beamBreak;
+
+  public BeamBreak() {
+    beamBreak = new DigitalInput(0);
+    /* instantiates sensor
+     * channel depends on sensor itself
+     */
+  }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+  }
+
+  public void getState() {
+    beamBreak.get();
   }
 }
