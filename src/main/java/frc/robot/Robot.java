@@ -21,6 +21,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 public class Robot extends TimedRobot {
 
   DigitalInput topLimitSwitch = new DigitalInput(0);//declares the limit switch object
+  CANSparkMax motor = new CANSparkMax(1,motorType.kBrushless)
   private Command m_autonomousCommand;
 
   private RobotContainer m_robotContainer;
@@ -90,6 +91,7 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     m_compressor 
     SmartDashboard.putBoolean(null, topLimitSwitch.get());//displays the state of the limit switch to the smart dashboard
+
   }
 
   @Override
