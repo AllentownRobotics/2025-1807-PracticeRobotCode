@@ -38,8 +38,4 @@ public class Pigeon extends SubsystemBase {
   public double getYaw() {
     return pigeon.getYaw().getValueAsDouble();
   }
-
-  public double getAngle() {
-    return pigeon.getAngle();
-  }
 }
