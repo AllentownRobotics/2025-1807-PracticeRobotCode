@@ -18,7 +18,7 @@ public class SparkFlex extends SubsystemBase {
 
   public SparkFlex() {
     sparkFlex = new CANSparkFlex(Constants.sparkFlexMotorID, MotorType.kBrushless);
-    /* instantiates motor controller
+    /* instantiates motor controller 
      * deviceID is specific to the motor controller
      * motorType is always MotorType.kBrushless b/c we use brushless motors
      */
