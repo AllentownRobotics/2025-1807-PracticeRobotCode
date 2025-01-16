@@ -5,6 +5,8 @@
 package frc.robot.subsystems;
 
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkBase.PersistMode;
+import com.revrobotics.spark.SparkBase.ResetMode;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
@@ -30,16 +32,16 @@ public class tankDrive extends SubsystemBase {
     bL = new SparkMax(Constants.DriveConstants.bRdriveID, MotorType.kBrushless);
 
     fLConfig = new SparkMaxConfig();
-    fL.configure(fLConfig, null, null);
+    fL.configure(fLConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     fRConfig = new SparkMaxConfig();
-    fR.configure(fRConfig, null, null);
+    fR.configure(fRConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     bLConfig = new SparkMaxConfig();
-    bL.configure(bLConfig, null, null);
+    bL.configure(bLConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     bRConfig = new SparkMaxConfig();
-    bR.configure(bRConfig, null, null);
+    bR.configure(bRConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     bLConfig.follow(Constants.DriveConstants.fLdriveID);
     bRConfig.follow(Constants.DriveConstants.fRdriveID);
