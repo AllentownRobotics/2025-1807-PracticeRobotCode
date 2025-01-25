@@ -4,21 +4,18 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.subsystems.tankDrive;
 
 public class DriveCommand extends Command {
   /** Creates a new DriveCommand. */
-  XboxController XboxController;
+  CommandXboxController xboxController;
   tankDrive tank_drive;
-  double x_dir;
-  double speed;
-  public DriveCommand(tankDrive tank_drive, double x_dir, double speed) {
+  public DriveCommand(CommandXboxController xboxController, tankDrive tank_drive) {
     // Use addRequirements() here to declare subsystem dependencies.
+    this.xboxController = xboxController;
     this.tank_drive = tank_drive;
-    this.x_dir = x_dir;
-    this.speed = speed;
     addRequirements(tank_drive);
   }
 
@@ -29,7 +26,7 @@ public class DriveCommand extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    tank_drive.getDifferentialDrive().arcadeDrive(speed, x_dir);
+    tank_drive.getDifferentialDrive().arcadeDrive(xboxController.getLeftY()*.25, xboxController.getRightX()*.25);
   }
 
   // Called once the command ends or is interrupted.

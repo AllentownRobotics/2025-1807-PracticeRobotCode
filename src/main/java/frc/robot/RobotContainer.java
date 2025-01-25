@@ -8,6 +8,7 @@ import frc.robot.commands.Autos;
 import frc.robot.commands.DriveCommand;
 import frc.robot.commands.targetingCommand;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.LimeLight;
 import frc.robot.subsystems.tankDrive;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -23,16 +24,17 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
 
-  private final  tankDrive tankDrive = new tankDrive();
+  private final tankDrive tankDrive = new tankDrive();
+  private final LimeLight limelight = new LimeLight();
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
  
   // Replace with CommandPS4Controller or CommandXboxController if needed
-  private final XboxController m_driverController =
-      new XboxController(0);
+  private final CommandXboxController driverController =
+      new CommandXboxController(Constants.OperatorConstants.kDriverControllerPort);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-    tankDrive.setDefaultCommand(new DriveCommand(tankDrive, m_driverController.getRightX(), m_driverController.getLeftY()));
+    tankDrive.setDefaultCommand(new DriveCommand(driverController, tankDrive));
     // Configure the trigger bindings
     configureBindings();
     
@@ -49,14 +51,11 @@ public class RobotContainer {
    */
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    if(m_driverController.getAButton()){
-      new targetingCommand();
+      driverController.a().whileTrue(new targetingCommand(limelight, tankDrive));
     }
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
-   // m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
-  }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.

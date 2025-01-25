@@ -19,9 +19,12 @@ NetworkTableEntry ta = table.getEntry("ta");
 static double x;
 double y;
 double area;
-public static double getX(){
+
+
+public double getX() {
   return x;
 }
+
   public LimeLight() {}
 
   @Override

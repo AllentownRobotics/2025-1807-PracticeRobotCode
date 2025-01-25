@@ -4,13 +4,15 @@
 
 package frc.robot.subsystems;
 
+import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkMaxAlternateEncoder;
 import com.revrobotics.spark.SparkBase.PersistMode;
-import com.revrobotics.spark.SparkBase.ResetMode;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -24,28 +26,31 @@ public class tankDrive extends SubsystemBase {
   SparkMaxConfig fRConfig;
   SparkMaxConfig bLConfig;
   SparkMaxConfig bRConfig;
+  RelativeEncoder encoder;
   DifferentialDrive tank_Drive;
   public tankDrive() {
     fL = new SparkMax(Constants.DriveConstants.fLdriveID, MotorType.kBrushless);
     fR = new SparkMax(Constants.DriveConstants.fRdriveID, MotorType.kBrushless);
-    bR = new SparkMax(Constants.DriveConstants.bLdriveID, MotorType.kBrushless);
-    bL = new SparkMax(Constants.DriveConstants.bRdriveID, MotorType.kBrushless);
+    bR = new SparkMax(Constants.DriveConstants.bRdriveID, MotorType.kBrushless);
+    bL = new SparkMax(Constants.DriveConstants.bLdriveID, MotorType.kBrushless);
+    encoder = bR.getAlternateEncoder();
 
     fLConfig = new SparkMaxConfig();
-    fL.configure(fLConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     fRConfig = new SparkMaxConfig();
-    fR.configure(fRConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     bLConfig = new SparkMaxConfig();
-    bL.configure(bLConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     bRConfig = new SparkMaxConfig();
-    bR.configure(bRConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
 
     bLConfig.follow(Constants.DriveConstants.fLdriveID);
     bRConfig.follow(Constants.DriveConstants.fRdriveID);
     fLConfig.inverted(true);
+
+    fL.configure(fLConfig, null, PersistMode.kPersistParameters);
+    fR.configure(fRConfig, null, PersistMode.kPersistParameters);
+    bL.configure(bLConfig, null, PersistMode.kPersistParameters);
+    bR.configure(bRConfig, null, PersistMode.kPersistParameters);
 
     tank_Drive = new DifferentialDrive(fL, fR);
   }
@@ -56,6 +61,7 @@ public class tankDrive extends SubsystemBase {
     
   @Override
   public void periodic() {
+    SmartDashboard.putNumber("encoder values", encoder.getPosition());
     // This method will be called once per scheduler run
   }
 }

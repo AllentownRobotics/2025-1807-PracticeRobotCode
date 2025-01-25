@@ -20,7 +20,7 @@ public final class Constants {
   public static class DriveConstants {
     public static final int fLdriveID = 4;
     public static final int fRdriveID = 3;
-    public static final int bLdriveID = 2;
-    public static final int bRdriveID = 1;
+    public static final int bLdriveID = 1;
+    public static final int bRdriveID = 2;
   }
 }
